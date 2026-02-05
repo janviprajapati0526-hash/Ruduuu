@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>💖 For Rudu 💖</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.box {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 420px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+h2 {
+  color: #ff4b7d;
+}
+
+button {
+  padding: 12px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  background: #ff4b7d;
+  color: white;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+.angry {
+  background: linear-gradient(135deg, #ff0000, #ff4b4b);
+  color: white;
+}
+
+.heart {
+  position: fixed;
+  bottom: -20px;
+  font-size: 20px;
+  animation: float 5s linear infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-100vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="box" id="content">
+  <h2>How do you feel right now?</h2>
+  <button onclick="bad()">😒 Bad</button>
+  <button onclick="good()">😄 Good</button>
+</div>
+
+<script>
+function hearts() {
+  setInterval(() => {
+    const h = document.createElement("div");
+    h.className = "heart";
+    h.innerHTML = "💖";
+    h.style.left = Math.random() * 100 + "vw";
+    document.body.appendChild(h);
+    setTimeout(() => h.remove(), 5000);
+  }, 300);
+}
+hearts();
+
+function bad() {
+  document.getElementById("content").innerHTML =
+    "<h2>😐 Nope. Pick GOOD.</h2><button onclick='good()'>😄 Good</button>";
+}
+
+function good() {
+  document.getElementById("content").innerHTML =
+    "<h2>OHHH GOOD JOB RUDU 💖🥰</h2><button onclick='loveQ()'>Next ➡️</button>";
+}
+
+function loveQ() {
+  document.getElementById("content").innerHTML =
+    `<h2>How much do you love me?</h2>
+     <button onclick="angry()">1</button>
+     <button onclick="angry()">2</button>
+     <button onclick="angry()">3</button>
+     <button onclick="angry()">4</button>
+     <button onclick="five()">5</button>`;
+}
+
+function angry() {
+  document.body.classList.add("angry");
+  document.getElementById("content").innerHTML =
+    "<h2>😠 Hell na seriously??</h2><button onclick='loveQ()'>Try again</button>";
+}
+
+function five() {
+  document.body.classList.remove("angry");
+  document.getElementById("content").innerHTML =
+    "<h2>Awww IK 💕 I love you my pookie 🥹💗</h2><button onclick='continueQ()'>Next ➡️</button>";
+}
+
+function continueQ() {
+  document.getElementById("content").innerHTML =
+    "<h2>Wanna continue?</h2><button onclick='yesSir()'>YES 💖</button>";
+}
+
+function yesSir() {
+  document.getElementById("content").innerHTML =
+    "<h2>YESSIRRR 💞😤✨</h2><button onclick='movieQ()'>Next ➡️</button>";
+}
+
+function movieQ() {
+  document.getElementById("content").innerHTML =
+    `<h2>First movie we watched together?</h2>
+     <button onclick="wrong()">Siddhat</button>
+     <button onclick="wrong()">The Girlfriend</button>
+     <button onclick="correct()">Sunny Sanskari Ki Tulsi Kumari</button>`;
+}
+
+function wrong() {
+  document.getElementById("content").innerHTML =
+    "<h2>🙄 Nahhh try again</h2><button onclick='movieQ()'>Retry</button>";
+}
+
+function correct() {
+  document.getElementById("content").innerHTML =
+    "<h2>YAYYYYY 🎉🥹💖</h2><button onclick='finalQ()'>Next ➡️</button>";
+}
+
+function finalQ() {
+  document.getElementById("content").innerHTML =
+    "<h2>So how did you like this surprise?</h2><button onclick='end()'>YES 💕</button>";
+}
+
+function end() {
+  document.getElementById("content").innerHTML =
+    "<h2>YAYYYY 💖🥰 I KNEW IT ✨💞</h2><p>Made with love 💌</p>";
+}
+</script>
+
+</body>
+</html>
